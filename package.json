@@ -1,0 +1,25 @@
+{
+  "name": "jquery.marquee",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Flandre/jquery.marquee.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Flandre/jquery.marquee/issues"
+  },
+  "homepage": "https://github.com/Flandre/jquery.marquee#readme",
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-webserver": "^0.9.1",
+    "jquery": "^3.1.0"
+  }
+}
