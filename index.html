@@ -12,22 +12,25 @@
 <body>
 
 <div id="marquee">
-  指整个Marquee对齐方式; (2)behavior:设置滚动的方式: scroll:表示由一端滚动到另一端,会重复,缺陷是不能无缝滚动。 slide:表示由一段滚动到另一端,不会重复...
+  <p>测试文本</p>
+  <p>测试文本</p>
+  <p>测试文本</p>
+  <p>测试文本</p>
+  <p>测试文本</p>
 </div>
 
 <script src="/js/jquery.min.js"></script>
-<script src="/js/jquery.marquee.js"></script>
+<script src="/js/jquery.scrolling.js"></script>
 <script>
   $('#marquee').marquee({
     width: 500,
     height: 500,
-    direction: 'up',
-    scrollamount: 3,
+    scrollamount: 10,
     loop: 1
-  })
+  });
 
   setInterval(function(){
-    $('#marquee>div').append($('<p>test</p>'))
+    $('#marquee').append($('<p>test</p>'))
   },500)
 </script>
 </body>
