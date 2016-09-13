@@ -24,20 +24,24 @@
         'position': 'absolute'
       });
       /* run animate */
-      setAnimate(o.direction);
+      setAnimate(o.direction, o.loop);
 
-      function setAnimate(type){
-        if(type == 'up'){
-          text.css('top',  o.height);
-          text.animate({
-            top: -text.height()
-          }, (text.height() + o.height) / o.scrollamount * o.scrolldelay, 'linear', function(){setAnimate(type)})
-        }
-        if(type == 'down'){
-          text.css('bottom',  o.height);
-          text.animate({
-            bottom: -text.height()
-          }, (text.height() + o.height) / o.scrollamount * o.scrolldelay, 'linear', function(){setAnimate(type)})
+      function setAnimate(type, loop){
+        if(loop != 0){
+          var lo = loop - 1;
+          console.log(lo)
+          if(type == 'up'){
+            text.css('top',  o.height);
+            text.animate({
+              top: -text.height()
+            }, (text.height() + o.height) / o.scrollamount * o.scrolldelay, 'linear', function(){setAnimate(type, lo)})
+          }
+          if(type == 'down'){
+            text.css('bottom',  o.height);
+            text.animate({
+              bottom: -text.height()
+            }, (text.height() + o.height) / o.scrollamount * o.scrolldelay, 'linear', function(){setAnimate(type, lo)})
+          }
         }
       }
     }
