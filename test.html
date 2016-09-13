@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>无标题文档</title>
+</head>
+
+<body>
+<div>
+  <marquee direction="up" behavior="scroll" scrollamount="3" scrolldelay="0" loop="-1" width="500" height="500"
+           bgcolor="#0099FF" hspace="10" vspace="10" id="marquee">
+
+  </marquee>
+  <script src="dist/js/jquery.min.js"></script>
+  <script>
+    var count = 0;
+    setInterval(function () {
+      $('#marquee').append($('<p>test' + count++ + '</p>'))
+    }, 500)
+  </script>
+</div>
+</body>
+</html>
