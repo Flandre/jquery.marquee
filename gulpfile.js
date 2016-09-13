@@ -1,6 +1,8 @@
 var gulp = require('gulp');
 var del = require('del');
 var webserver = require('gulp-webserver');
+var uglify = require('gulp-uglify');
+var pump = require('pump');
 
 gulp.task('clean', function () {
   return del(['dist/']);
@@ -12,10 +14,15 @@ gulp.task('copy_modules', function () {
     .pipe(gulp.dest('dist/js/'));
 });
 
-gulp.task('copy_src', function () {
+gulp.task('copy_src', function (cb) {
   // js
-  gulp.src('src/js/*.js')
-    .pipe(gulp.dest('dist/js/'));
+  pump([
+      gulp.src('src/js/*.js'),
+      uglify(),
+      gulp.dest('dist/js/')
+    ],
+    cb
+  );
   // index
   gulp.src('index.html')
     .pipe(gulp.dest('dist/'));
