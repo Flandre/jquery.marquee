@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #marquee {
+      width: 500px;
+      height: 500px;
+      border: 1px solid;
+      overflow: hidden;
+      position: relative;
+    }
+
+    #marquee > p {
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+<div id="marquee">
+  <p>测试文本1</p>
+  <p>测试文本2</p>
+  <p>测试文本3</p>
+  <p>测试文本4</p>
+  <p>测试文本5</p>
+  <p>测试文本6</p>
+  <p>测试文本7</p>
+  <p>测试文本8</p>
+  <p>测试文本9</p>
+  <p>测试文本10</p>
+  <p>测试文本11</p>
+  <p>测试文本12</p>
+  <p>测试文本13</p>
+  <p>测试文本14</p>
+  <p>测试文本15</p>
+  <p>测试文本16</p>
+</div>
+<!--<script src="jquery.min.js"></script>-->
+<script src="//cdn.bootcss.com/jquery/3.1.0/jquery.min.js"></script>
+<script>
+  var h = $('#marquee').height();
+  var count = 0;
+  var runCount = 0;
+  $('#marquee > p').each(function () {
+    $(this)
+      .attr('data-in', count++)
+      .css('top', h);
+  });
+  setInterval(function () {
+    $('[data-in=' + runCount++ + ']').animate({
+      top: -50
+    }, 8000, 'linear', function () {
+      $(this)
+        .attr('data-in', count++)
+        .css('top', h);
+    })
+  }, 500);
+
+  /* 追加数据 */
+  setInterval(function () {
+    $('#marquee').append(
+      $('<p>test' + count + '</p>')
+        .attr('data-in', count++)
+        .css('top', h))
+  }, 3000)
+</script>
+</body>
+</html>
